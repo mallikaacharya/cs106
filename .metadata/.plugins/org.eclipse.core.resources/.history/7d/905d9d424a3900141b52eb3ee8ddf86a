@@ -27,7 +27,7 @@ public class Project1 {
 		
 		
 	}
-	public static void random(double sumofsquares, int trials) {
+	public static void formula(double sumofsquares, int trials) {
 		/* This is an extra method to demonstrate that I know how to make multiple methods */
 		
 	}
