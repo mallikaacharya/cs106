@@ -1,0 +1,31 @@
+/**
+ * 
+ */
+
+/**
+ * @author mallikaacharya
+ *
+ */
+public class Project1 {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* Define the sum of squares */
+		double sumofsquares = 27.0;
+		
+		/* Define the number of trials */
+		int trials = 3;
+		
+		/* Display phrase */
+		System.out.println("The Standard Deviation is:");
+		
+		/*Standard deviation formula */
+		System.out.println(Math.sqrt( sumofsquares ) / ( trials - 1 ));
+		
+		
+	}
+
+}
