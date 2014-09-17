@@ -25,18 +25,16 @@ public class Project1 {
 		int trials = console.nextInt();
 		
 		/* Display phrase */
-		System.out.print("The Standard Deviation is:" + result(sumofsquares, trials));
+		System.out.println("The Standard Deviation is:");
 		
 		/*Standard deviation formula */
+		System.out.println(Math.sqrt( sumofsquares ) / ( trials - 1 ));
 		
 		
 	}
-	public static double result(double sumofsquares, int trials) {
-		/* This method is to perform calculation and return result */
-		return Math.sqrt( sumofsquares ) / ( trials - 1 );
-
-		
-		
+	public static void random(double sumofsquares, int trials) {
+		/* This is an extra method to demonstrate that I know how to make multiple methods */
+		System.out.println( "sumofsquares + trials" );
 	}
 
 }

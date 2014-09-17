@@ -25,7 +25,7 @@ public class Project1 {
 		int trials = console.nextInt();
 		
 		/* Display phrase */
-		System.out.print("The Standard Deviation is:" + result(sumofsquares, trials));
+		System.out.println("The Standard Deviation is:" + result(sumofsquares, trials));
 		
 		/*Standard deviation formula */
 		
