@@ -1,0 +1,42 @@
+import java.util.Scanner*;
+
+/**
+ * @author mallikaacharya
+ */
+public class Project2 {
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//Import Declaration 
+		Scanner console = new Scanner(System.in);
+		
+	}
+
+}
+
+	public static int question1(Scanner console, int answer1) {
+		//First question
+		//If yes, +4 points
+		//If no, +0 points
+		//Print question:
+		System.out.print("Do you bribe other people to do your laundry for you (yes or no)?");
+		//Console enters answer
+		//The name of string for console input is a
+		String a = console.nextLine();
+		if (a.equals("yes")) {
+			answer1 = 4;
+		} else if (a.equals("no")) {
+			answer1 = 0;
+		}
+		//Define int for yes and no
+		int answer1 = a
+		
+	}
+	
+	public static int question2() {
+		//Second question
+		//If yes, +5 points
+		//If no, +0 points
+	}
