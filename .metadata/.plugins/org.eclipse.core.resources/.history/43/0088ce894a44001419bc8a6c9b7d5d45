@@ -34,9 +34,9 @@ public class Project2 {
 		} else if (16 <= total && total <= 23) {
 			score = "you're borderline lazy; be cautious and don't let things get out of hand";
 		} else {
-			score = "you may be so lazy that you may need help! Whoa!";
+			score = "Whoa! You may be so lazy that you may need help!";
 		}	
-		System.out.println("Based on your answers " + score);
+		System.out.println("Based on your answers" + score);
 	}
 
 	public static int question1(Scanner console) {
@@ -55,12 +55,10 @@ public class Project2 {
 	}	
 	
 	public static int question2(Scanner console) {
-		/**
-		*Second question
-		*If yes, +4 points
-		*If no, +0 points
-		*Print question:
-		*/
+		//Second question
+		//If yes, +4 points
+		//If no, +0 points
+		//Print question:
 		System.out.print("Do you record your classes so you don't have to pay attention (yes or no)?");
 		//Console enters answer
 		//The name of string for console input is b
@@ -72,12 +70,10 @@ public class Project2 {
 	}
 	
 	public static int question3(Scanner console) {
-		/**
-		*Third question
-		*If yes, +5 points
-		*If no, +0 points
-		*Print question:
-		*/
+		//Third question
+		//If yes, +5 points
+		//If no, +0 points
+		//Print question:
 		System.out.print("Do you ever fall asleep with food in your mouth and wake up and eat that food for breakfast (yes or no)?");
 		//Console enters answer
 		//The name of string for console input is c
@@ -90,18 +86,18 @@ public class Project2 {
 	}
 			
 	public static int question4(Scanner console) {
-			//Fourth question
-			//If yes, +3 points
-			//If no, +0 points
-			//Print question:
-			System.out.print("Do you ever put perfume/cologne on instead of taking a shower (yes or no)?");
-			//Console enters answer
-			//The name of string for console input is d
-			String d = console.nextLine();
-			if (d.equals("yes")) {
-				return 3;
-			} 
-				return 0;			
+				//Fourth question
+				//If yes, +3 points
+				//If no, +0 points
+				//Print question:
+				System.out.print("Do you ever put perfume/cologne on instead of taking a shower (yes or no)?");
+				//Console enters answer
+				//The name of string for console input is d
+				String d = console.nextLine();
+				if (d.equals("yes")) {
+					return 3;
+				} 
+					return 0;			
 	}
 	
 	public static int question5(Scanner console) {

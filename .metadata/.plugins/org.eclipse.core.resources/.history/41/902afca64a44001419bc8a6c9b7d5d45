@@ -34,9 +34,9 @@ public class Project2 {
 		} else if (16 <= total && total <= 23) {
 			score = "you're borderline lazy; be cautious and don't let things get out of hand";
 		} else {
-			score = "you may be so lazy that you may need help! Whoa!";
+			score = "Whoa! You may be so lazy that you may need help!";
 		}	
-		System.out.println("Based on your answers " + score);
+		System.out.println("Based on your answers" + score);
 	}
 
 	public static int question1(Scanner console) {
