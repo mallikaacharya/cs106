@@ -30,7 +30,7 @@ public class Project2 {
 	    if (total <= 8) {
 			score = "you're not lazy enough; you need to relax";
 		} else if (9 <= total && total <= 15) {
-			score = "you're healthily lazy; you don't do things that are unnecessary";	
+			score = "you're Healthily lazy; you don't do things that are unnecessary";	
 		} else if (16 <= total && total <= 23) {
 			score = "you're borderline lazy; be cautious and don't let things get out of hand";
 		} else {
