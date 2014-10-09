@@ -67,14 +67,14 @@ public class Project3 {
 					
 			do {
 					if (!first)	{
-							System.out.println("Please enter \"yes\" or \"no\". Do not use spaces, capital letters, numbers, or special characters.");
+							System.out.println("Please enter \"yes\" or \"no\". Do not use spaces, numbers, or special characters.");
 					}
 					answer = console.nextLine();
 					first = false;
 					}	
 
 			while (!answer.equalsIgnoreCase("yes")
-			&& !answer.equalsIgnoreCase("no")); if (!first);
+			&& !answer.equalsIgnoreCase("no"));
 			
 			
 			if (answer.equals("yes")) {
@@ -101,14 +101,14 @@ public class Project3 {
 					
 			do {
 					if (!first)	{
-							System.out.println("Please enter \"yes\" or \"no\". Do not use spaces, capital letters, numbers, or special characters.");
+							System.out.println("Please enter \"yes\" or \"no\". Do not use spaces, numbers, or special characters.");
 					}
 					b = console.nextLine();
 					first = false;
 					}	
 
 			while (!b.equalsIgnoreCase("yes")
-			&& !b.equalsIgnoreCase("no")); if (!first);
+			&& !b.equalsIgnoreCase("no"));
 			
 			if (b.equals("yes")) {
 				return 4;
@@ -132,14 +132,14 @@ public class Project3 {
 					
 			do {
 					if (!first)	{
-							System.out.println("Please enter \"yes\" or \"no\". Do not use spaces, capital letters, numbers, or special characters.");
+							System.out.println("Please enter \"yes\" or \"no\". Do not use spaces, numbers, or special characters.");
 					}
 					c = console.nextLine();
 					first = false;
 					}	
 
 			while (!c.equalsIgnoreCase("yes")
-			&& !c.equalsIgnoreCase("no")); if (!first);
+			&& !c.equalsIgnoreCase("no"));
 			
 			if (c.equals("yes")) {
 				return 5;
@@ -162,14 +162,14 @@ public class Project3 {
 						
 				do {
 						if (!first)	{
-								System.out.println("Please enter \"yes\" or \"no\". Do not use spaces, capital letters, numbers, or special characters.");
+								System.out.println("Please enter \"yes\" or \"no\". Do not use spaces, numbers, or special characters.");
 						}
 						d = console.nextLine();
 						first = false;
 						}	
 
 				while (!d.equalsIgnoreCase("yes")
-				&& !d.equalsIgnoreCase("no")); if (!first);
+				&& !d.equalsIgnoreCase("no")); 
 				
 				
 				if (d.equals("yes")) {
@@ -194,14 +194,14 @@ public class Project3 {
 					
 			do {
 					if (!first)	{
-							System.out.println("Please enter \"yes\" or \"no\". Do not use spaces, capital letters, numbers, or special characters.");
+							System.out.println("Please enter \"yes\" or \"no\". Do not use spaces, numbers, or special characters.");
 					}
 					e = console.nextLine();
 					first = false;
 					}	
 
 			while (!e.equalsIgnoreCase("yes")
-			&& !e.equalsIgnoreCase("no")); if (!first);
+			&& !e.equalsIgnoreCase("no")); 
 			
 			if (e.equals("yes")) {
 				return 4;
@@ -222,14 +222,14 @@ public class Project3 {
 					
 			do {
 					if (!first)	{
-							System.out.println("Please enter \"yes\" or \"no\". Do not use spaces, capital letters, numbers, or special characters.");
+							System.out.println("Please enter \"yes\" or \"no\". Do not use spaces, numbers, or special characters.");
 					}
 					f = console.nextLine();
 					first = false;
 					}	
 
 			while (!f.equalsIgnoreCase("yes")
-			&& !f.equalsIgnoreCase("no")); if (!first);
+			&& !f.equalsIgnoreCase("no"));
 			
 			
 			if (f.equals("yes")) {
@@ -246,19 +246,19 @@ public class Project3 {
 			System.out.print("Have you ever not handed in an assignment because you \"don't own any paper or writing tools\" (yes or no)?");
 			//Console enters answer
 			//The name of string for console input is g
-			String b;
+			String g;
 			boolean first = true;		
 					
 			do {
 					if (!first)	{
-							System.out.println("Please enter \"yes\" or \"no\". Do not use spaces, capital letters, numbers, or special characters.");
+							System.out.println("Please enter \"yes\" or \"no\". Do not use spaces, numbers, or special characters.");
 					}
 					g = console.nextLine();
 					first = false;
 					}	
 
 			while (!g.equalsIgnoreCase("yes")
-			&& !g.equalsIgnoreCase("no")); if (!first);
+			&& !g.equalsIgnoreCase("no"));
 			
 			
 			if (g.equals("yes")) {
@@ -281,14 +281,14 @@ public class Project3 {
 					
 			do {
 					if (!first)	{
-							System.out.println("Please enter \"yes\" or \"no\". Do not use spaces, capital letters, numbers, or special characters.");
+							System.out.println("Please enter \"yes\" or \"no\". Do not use spaces, numbers, or special characters.");
 					}
 					h = console.nextLine();
 					first = false;
 					}	
 
 			while (!h.equalsIgnoreCase("yes")
-			&& !h.equalsIgnoreCase("no")); if (!first);
+			&& !h.equalsIgnoreCase("no"));
 			
 			if (h.equals("yes")) {
 				return 2;
@@ -310,14 +310,14 @@ public class Project3 {
 					
 			do {
 					if (!first)	{
-							System.out.println("Please enter \"yes\" or \"no\". Do not use spaces, capital letters, numbers, or special characters.");
+							System.out.println("Please enter \"yes\" or \"no\". Do not use spaces, numbers, or special characters.");
 					}
 					j = console.nextLine();
 					first = false;
 					}	
 
 			while (!j.equalsIgnoreCase("yes")
-			&& !j.equalsIgnoreCase("no")); if (!first);
+			&& !j.equalsIgnoreCase("no"));
 			
 			if (j.equals("yes")) {
 				return 2;
@@ -338,14 +338,14 @@ public class Project3 {
 					
 			do {
 					if (!first)	{
-							System.out.println("Please enter \"yes\" or \"no\". Do not use spaces, capital letters, numbers, or special characters.");
+							System.out.println("Please enter \"yes\" or \"no\". Do not use spaces, numbers, or special characters.");
 					}
 					k = console.nextLine();
 					first = false;
 					}	
 
 			while (!k.equalsIgnoreCase("yes")
-			&& !k.equalsIgnoreCase("no")); if (!first);
+			&& !k.equalsIgnoreCase("no"));
 			
 			if (k.equals("yes")) {
 				return 1;
