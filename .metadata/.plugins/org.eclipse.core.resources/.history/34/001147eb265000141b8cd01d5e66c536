@@ -26,6 +26,10 @@ public class Project4 {
 		System.out.println("The savings $" + savings);
 	}
 
+
+	
+	
+	
 	public static double processChecking() throws FileNotFoundException {
 		Scanner input = new Scanner(new File("src/Input.txt"));
 		double checkingbalance = 0.0;
@@ -81,17 +85,17 @@ public class Project4 {
 		return credit;
 }
 	public static double processSavings() throws FileNotFoundException {
-	Scanner input = new Scanner(new File("src/Input.txt"));
+		Scanner input = new Scanner(new File("src/Input.txt"));
 		double savings = 0.0;
 		while (input.hasNext()) {
 			//Skip the date column
 			input.next();
-			if(input.hasNext("Savings")) {
+			if(input.hasNext("Checking")) {
 				input.next();
 				if(input.hasNext("Deposit")) {
 					input.next();
 					savings += input.nextDouble();
-				} else if(input.hasNext("Opening")) {
+				if(input.hasNext("Opening")) {
 					input.next();
 					input.next();
 					savings += input.nextDouble();
@@ -99,16 +103,10 @@ public class Project4 {
 			} else {
 			input.nextLine();
 			}
-		}	
+		}
 		input.close();
 		return savings;		
 		}
-	}	
-
-
-
-	
-	
-			
-
+	}
+}
 

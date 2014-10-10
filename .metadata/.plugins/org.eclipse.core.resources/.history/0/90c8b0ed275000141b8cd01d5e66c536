@@ -26,6 +26,10 @@ public class Project4 {
 		System.out.println("The savings $" + savings);
 	}
 
+
+	
+	
+	
 	public static double processChecking() throws FileNotFoundException {
 		Scanner input = new Scanner(new File("src/Input.txt"));
 		double checkingbalance = 0.0;
@@ -91,7 +95,7 @@ public class Project4 {
 				if(input.hasNext("Deposit")) {
 					input.next();
 					savings += input.nextDouble();
-				} else if(input.hasNext("Opening")) {
+				}else if(input.hasNext("Opening")) {
 					input.next();
 					input.next();
 					savings += input.nextDouble();
@@ -99,12 +103,11 @@ public class Project4 {
 			} else {
 			input.nextLine();
 			}
-		}	
 		input.close();
 		return savings;		
 		}
-	}	
-
+		}	
+	}
 
 
 	

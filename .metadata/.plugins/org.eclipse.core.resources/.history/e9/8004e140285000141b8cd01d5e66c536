@@ -80,7 +80,7 @@ public class Project4 {
 		input.close();
 		return credit;
 }
-	public static double processSavings() throws FileNotFoundException {
+	public static void processSavings() throws FileNotFoundException {
 	Scanner input = new Scanner(new File("src/Input.txt"));
 		double savings = 0.0;
 		while (input.hasNext()) {
@@ -99,12 +99,11 @@ public class Project4 {
 			} else {
 			input.nextLine();
 			}
-		}	
 		input.close();
 		return savings;		
 		}
 	}	
-
+}
 
 
 	
