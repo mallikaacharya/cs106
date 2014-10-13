@@ -11,7 +11,6 @@ import java.io.*;
 //For scanner
 import java.util.*;
 
-
 public class Project4 {
 	/**
 	 * @param args
@@ -21,13 +20,12 @@ public class Project4 {
 		double checkingbalance = processChecking();
 		double credit = processCredit();
 		double savings = processSavings();
-				
+		
 		System.out.println("The checking balance is $" + checkingbalance);
 		System.out.println("The credit is $" + credit);
 		System.out.println("The savings $" + savings);
-
 	}
-	
+
 	public static double processChecking() throws FileNotFoundException {
 		Scanner input = new Scanner(new File("src/Input.txt"));
 		double checkingbalance = 0.0;
@@ -103,19 +101,13 @@ public class Project4 {
 			}
 		}	
 		input.close();
-		return savings;			
+		return savings;		
 		}
+	}	
 
-	public static void outputFile (double checkingbalance, double savings, double credit)
-		throws FileNotFoundException {
-	  PrintStream output = 
-	  	new PrintStream(new File("Ouput.txt"));
-		output.println("The checking balance is $" + checkingbalance);
-		output.println("The credit is $" + credit);
-		output.println("The savings $" + savings);
-	output.close();
-	}
-}	
+
+
+	
 	
 			
 
