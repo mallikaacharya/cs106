@@ -25,7 +25,77 @@ public class Project4 {
 		System.out.println("The checking balance is $" + checkingbalance);
 		System.out.println("The credit is $" + credit);
 		System.out.println("The savings $" + savings);
+		
+		//How many lines in input.txt?
+		int numLines = 0;
+		Scanner fileReader = new Scanner(new File("src/Input.txt"));
+		while (fileReader.hasNextLine()) {
+			fileReader.nextLine();
+			numLines++;		
+		}
 
+		//Provision arrays to hold values based on the number of lines
+		String[] dates = new String[numLines];
+		String[] accounts = new String[numLines];
+		String[] transactions = new String [numLines];
+		double [] amounts = new double [numLines];
+		
+		//Populate the arrays from file
+		int i = 0;
+		fileReader = new Scanner(new File("src/Input.txt"));
+		while (fileReader.hasNext()) {
+		
+		
+		dates [i] = fileReader.next();	
+		
+		
+		accounts [i] = fileReader.next();
+		if (accounts [i].equals("Credit")) {
+			accounts[i] = accounts[i] + " " + fileReader.next();	
+		}
+		
+		transactions[i] = fileReader.next();
+		if (transactions[i].equals("Opening")) {
+			transactions[i] = transactions[i] + " " + fileReader.next();	
+		}		
+		amounts [i] = fileReader.nextDouble();
+		
+		i++;
+		
+		}
+		fileReader.close();
+		
+		double checkingArray = 0.0;
+		double savingsArray = 0.0;
+		double creditArray = 0.0;
+		
+		for (i=0; i<dates.length; i++) {
+			if (accounts[i].equals("Checking")) {
+				if (transactions[i].equals("Withdrawal")) {
+					checkingArray -= amounts[i];
+				} else {
+					checkingArray += amounts[i];
+				}
+			} else if (accounts[i].equals("Savings")) {
+				if (transactions[i].equals("Withdrawal")) {
+					savingsArray -= amounts[i];
+				} else {
+					savingsArray += amounts [i];					
+				}	
+			} else {
+				if (transactions[i].equals("Withdrawal")) {
+					creditArray -= amounts[i];
+				} else { 
+					creditArray += amounts[i];
+				}
+			}
+			
+		}
+		System.out.println("The checking balance is $ " + checkingArray);
+		System.out.println("The savings balance is $ " + savingsArray);
+		System.out.println("The credit balance is $ " + creditArray);
+
+		
 	}
 	
 	public static double processChecking() throws FileNotFoundException {
