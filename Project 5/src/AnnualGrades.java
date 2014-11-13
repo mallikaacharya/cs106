@@ -64,7 +64,11 @@ public class AnnualGrades {
 		this.second = initSecond;
 		this.EnrollmentLevel = initEnrollmentLevel;
 	}
-	
+	/**
+	 * This method gets the number of lines in the input file. 
+	 * @return
+	 * @throws FileNotFoundException 
+	 */
 	public static int GetLines () throws FileNotFoundException {
 	int numLines = 0;
 	Scanner fileReader = new Scanner(new File("src/InputGrades.txt")); 
@@ -74,8 +78,13 @@ public class AnnualGrades {
 	}
 	fileReader.close();
 	return numLines;
-	}
-
+	}	
+	
+	/**
+	 * This method creates the array. 
+	 * @return
+	 * @throws FileNotFoundException
+	 */
 	public static void CreateArray (AnnualGrades []ag) throws FileNotFoundException {
 	  Scanner fileReader = new Scanner(new File("src/InputGrades.txt")); 
 	
@@ -101,6 +110,11 @@ public class AnnualGrades {
 	  fileReader.close();
     }
 	
+	/**
+	 * This method gets the average of the first semester grades. 
+	 * @return
+	 * @throws FileNotFoundException
+	 */
 	public static double FirstSemAvg (AnnualGrades[]ag) throws FileNotFoundException {
 
 	int i = 0; double sum =0.0;
@@ -111,7 +125,11 @@ public class AnnualGrades {
 	}
 	return sum / nl;
 	}
-	
+	/**
+	 * This method gets the average of the second semester grades. 
+	 * @return
+	 * @throws FileNotFoundException
+	 */
 	public static double SecondSemAvg (AnnualGrades[]ag) throws FileNotFoundException {
 
 		int i = 0; double sum =0.0;
@@ -122,6 +140,11 @@ public class AnnualGrades {
 		}
 		return sum / nl;
 		}
+	/**
+	 * This method gets the number of years with high enrollment. 
+	 * @return
+	 * @throws FileNotFoundException
+	 */
 	public static int NumELHigh (AnnualGrades[]ag) throws FileNotFoundException {
 
 		int i = 0; int sum = 0;
@@ -133,6 +156,11 @@ public class AnnualGrades {
 		}
 		return sum;
 		}
+	/**
+	 * This method gets the number of years with low enrollment. 
+	 * @return
+	 * @throws FileNotFoundException
+	 */
 	public static int NumELLow (AnnualGrades[]ag) throws FileNotFoundException {
 
 		int i = 0; int sum = 0;
