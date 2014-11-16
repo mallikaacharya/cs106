@@ -3981,3 +3981,14 @@ Contains: The project description file (.project) for 'Random3' is missing.  Thi
 
 !ENTRY org.eclipse.egit.ui 4 0 2014-11-15 21:33:25.097
 !MESSAGE Errors occurred while refreshing resources with the local file system.
+
+!ENTRY org.eclipse.core.resources 2 2 2014-11-15 21:43:48.933
+!MESSAGE Save operation warnings.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2014-11-15 21:43:48.934
+!MESSAGE The project description file (.project) for 'Random' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2014-11-15 21:43:48.934
+!MESSAGE The project description file (.project) for 'Random1' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2014-11-15 21:43:48.934
+!MESSAGE The project description file (.project) for 'Random2' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2014-11-15 21:43:48.934
+!MESSAGE The project description file (.project) for 'Random3' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
