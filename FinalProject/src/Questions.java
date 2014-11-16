@@ -1,3 +1,13 @@
+/** 
+ * Final Project > Questions Class
+ * Essentially does the following:
+ * Loads questions and answer choices from an input file (Questions.txt)
+ * Prompts user for a response
+ * Returns a value for each response
+ * Sources used:
+ * http://stackoverflow.com/questions/19141661/regular-expression0-9-issue-in-java
+ */
+
 //console
 import java.util.Scanner;
 //Import for file operations
@@ -18,9 +28,17 @@ public class Questions {
 	
         String text;
         String chosenAnswer;
+        //TreeMap: key = Letter of the answer; value = Answer that corresponds to letter
         TreeMap <String, String> answerChoices;
         static int numQuestions;
         static Questions [] myQuestionList = new Questions[0];
+        
+        String ans;
+        int valPerAns;
+        //TreeMap: key = Letter of the answer; value = Answer that corresponds to letter
+        TreeMap <String, Integer> answerValues;
+        static int theValues;
+        static Values [] myAnswerValues = new Values [0];
         
         /**
 		 * This method reads the input file, creates tree map, and loops through the questions & answer choices.
@@ -28,137 +46,51 @@ public class Questions {
 		 */
 		public static void loadQuestions () throws FileNotFoundException {
 		Scanner fileReader = new Scanner(new File("src/Questions.txt"));
-        String questionText, ansLetter, ansText;
-		int i = 0;
+        String questionText, ansLetter, ansText, ansValue;
+		int i = 0, v=0;
 		while (fileReader.hasNext()) {			
 			questionText = fileReader.nextLine();
             myQuestionList[i] = new Questions();
             myQuestionList[i].text = questionText;
+            myAnswerValues[v] = new Values();
+            myAnswerValues[v].ans = ansValue;
+
             while(fileReader.hasNext() && !fileReader.hasNext("END")) {
             	ansLetter = fileReader.next("[A-Z]");
-                ansText = fileReader.next();          
+            	ansValue = fileReader.next("[1-4]");
+                ansText = fileReader.next(); 
+                //TreeMap: key = Letter of the answer; value = Answer that corresponds to letter
             	myQuestionList[i].answerChoices.put(ansLetter, ansText);
+            	//TreeMap: key = Letter of the answer; value = Value of the letter
+            	myAnswerValues[v].answerChoices.put(ansLetter, ansValue);
             }
 			i++;
+			v++;
 		}
-		
 		numQuestions = i;
+		myAnswerValues = v;
 		}
 		
 		
 		/**
 		 * This method prompts writes out questions for the user and gets responses for each question
 		 */
-		
-		public static void AskQuestions (){
-		
+		public static void AskQuestions (){	
 		// For Each Question
 		for (int i=0;i <numQuestions ; i++) {
 			// print the question
-			// for each item in the treemap print the answerChoice
+			// for each item in the TreeMap print the answerChoice			
+			for (String answerLetter:  myQuestionList[i].answerChoices.keySet()) {
+				System.out.println(answerLetter + ": " + myQuestionList[i].answerChoices.get(answerLetter));
+			}
 			myQuestionList[i].chosenAnswer = ""; // Reset the answer for this question
-			// loop
+			// Validates answer
 			while (! myQuestionList[i].answerChoices.containsKey(myQuestionList[i].chosenAnswer)) {
-			// read from console the answer
-			// validate the answer
-			// store the answer in myQuestions[i].chosenAnswer
+				System.out.println("Please enter a valid response.");
+
+			// store the answer in myQuestions[i].chosenAnswer = console.nextline
+			  
 			}
 		}
-		}
-		
-		
-			
-			
-			
-			
-			Scanner theirAnswer = new Scanner(System.in);
-			for(String element: q){
-            System.out.println(element + theirAnswer);
 		}	
-			
-		
-		}	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		public static void QuestionsArray (Scanner console) {	
-		
-		private int[] questionsArray = new String[2] {
-			
-		questionsArray[0] = "Which of the following do you prefer to eat for breakfast?"; 
-		questionsArray[1] = "What would you typically do on a Sunday morning?";
-		questionsArray[2] = "If you could live anywhere, where would it be?";
-				
-		;
-		
-		/**
-		 * This method has a multidimensional array of the answer choices to each question. 
-		 */
-		public static void AnswersArray (Scanner console) {
-		
-		String AnswersArray [][];
-		AnswersArray[3][1];
-		AnswersArray[1][1] = "A Black coffee \nB Fruit bowl \nC Pancakes with syrup \nD Leftover Pizza";
-		AnswersArray[2][1] = "A Lay in bed and watch TV \nB Go on a 5K run \nC Walk the dog \nD Cook brunch";
-		AnswersArray[3][1] = "A On a farm \nB Within a mountain range, like the Alps \nC On a beach in California \nD In a city like New York";
-		}
-		}
-		
-		
-		/**
-		 * This method creates an array that gives a value to each question.
-		 * @param console
-		 * http://math.hws.edu/javanotes/c7/s5.html
-		 */
-		public static void AnswerValueArray (Scanner console) {
-		
-		String[] answerValueArray = new String[4];
-		answerValueArray[1] = "A";
-		answerValueArray[2] = "B";
-		answerValueArray[3] = "C";
-		answerValueArray[4] = "D";		
-		
-		}
-	
-		/**
-		 * NOTES TO SELF:
-		 *  
-		 * Questions Class: 
-		 *  Make arrays for questions, answer choices and values for A, B, C, D (e.g. A = 1, B = 2, etc...) 
-		 *  Print question array + Answer array.
-		 *  If I can somehow make this a loop, so it doesn't have to be written for each question, make one.
-		 *  A do while loop for invalid answer
-		 *  Return a value for each type of answers; not in a redundant way, just one generic one that functions for each question
-		 * 
-		 * Input Class:
-		 *  Will read the input file containing the information about the jpgs, and load images?
-		 *  USE ARRAYS!!!
-		 *  Use import java.util.*;
-		 *  Use import java.io.*;
-		 *  
-		 * Image class:
-		 *  Will print the image that corresponds to a specific answer (A,B,C,D) for each question probably (if/else)
-		 *  Use import java.awt.* (Jpanel)
-		 *  Source: http://www.coderanch.com/t/550294/GUI/java/put-image-JPanel
-		 *  The source above gives sample code of jpegs being inerted at specific points
-		 * 
-		 * Main class/method:
-		 *  Print the final image
-		 *  Can't be > 10 lines of code
-		 */
-		
-		}
-		
-	}	
-	}		
-		
-}
-
+}	
