@@ -1,0 +1,156 @@
+import java.util.Scanner;
+
+/**
+ * 
+ */
+
+/**
+ * @author mallikaacharya
+ *
+ */
+public class Random2 {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String answer;
+		boolean first = true;
+				
+		//If an invalid response is entered		
+		do {
+				if (!first)	{
+						System.out.println("Please enter \"A\", \"B\", \"C\", or \"D\". Do not use spaces, numbers, or special characters.");
+				}
+				answer = console.nextLine();
+				first = false;
+				}	
+
+		while (!answer.equalsIgnoreCase("A")
+		&& !answer.equalsIgnoreCase("B")
+		&& !answer.equalsIgnoreCase("C")
+		&& !answer.equalsIgnoreCase("D"));
+
+		
+		
+		
+		
+		//What to do with each valid answer; points
+		if (answer.equalsIgnoreCase("A")) {
+			return 1;
+		} else if (answer.equalsIgnoreCase("B")) {
+			return 2;
+		} else if (answer.equalsIgnoreCase("C")) {
+			return 3;
+		} else if (answer.equalsIgnoreCase("D")) {
+			return 4;
+		} 
+			return 0;
+	}
+				
+		/**
+		 * @param console
+		 * @return
+		 * This method contains the second question
+		 */
+
+		String answer;
+		boolean first = true;
+				
+				
+		do {
+				if (!first)	{
+						System.out.println("Please enter \"A\", \"B\", \"C\", or \"D\". Do not use spaces, numbers, or special characters.");
+				}
+				answer = console.nextLine();
+				first = false;
+				}	
+
+		while (!answer.equalsIgnoreCase("A")
+		&& !answer.equalsIgnoreCase("B")
+		&& !answer.equalsIgnoreCase("C")
+		&& !answer.equalsIgnoreCase("D"));
+
+		
+		if (answer.equalsIgnoreCase("A")) {
+			return 1;
+		} else if (answer.equalsIgnoreCase("B")) {
+			return 2;
+		} else if (answer.equalsIgnoreCase("C")) {
+			return 3;
+		} else if (answer.equalsIgnoreCase("D")) {
+			return 4;
+		} 
+			return 0;
+	}
+		
+	/**
+	 * @param console
+	 * @return
+	 * This method contains the third question
+	 */	
+		public static int question3(Scanner console) {
+		//Third question
+		System.out.print();
+		System.out.println("A	On a farm");
+		System.out.println("B	Within a mountain range, like the Alps");
+		System.out.println("C	On a beach in California");
+		System.out.println("D	In a city like New York");
+		
+		String answer;
+		boolean first = true;
+				
+				
+		do {
+				if (!first)	{
+						System.out.println("Please enter \"A\", \"B\", \"C\", or \"D\". Do not use spaces, numbers, or special characters.");
+				}
+				answer = console.nextLine();
+				first = false;
+				}	
+
+		while (!answer.equalsIgnoreCase("A")
+		&& !answer.equalsIgnoreCase("B")
+		&& !answer.equalsIgnoreCase("C")
+		&& !answer.equalsIgnoreCase("D"));
+
+		
+		if (answer.equalsIgnoreCase("A")) {
+			return 1;
+		} else if (answer.equalsIgnoreCase("B")) {
+			return 2;
+		} else if (answer.equalsIgnoreCase("C")) {
+			return 3;
+		} else if (answer.equalsIgnoreCase("D")) {
+			return 4;
+		} 
+			return 0;
+	
+	}
+
+}
+
+//Letter choices for answers
+String AnswerA = "A";
+String AnswerB = "B";
+String AnswerC = "C";
+String AnswerD = "D";
+
+//Values for each letter choice
+int outputA = 1;
+int outputB = 2;
+int outputC = 3;
+int outputD = 4;
+
+
+//DELETE String question1 = "Which of the following do you prefer to eat for breakfast?; 
+		//DELETE String question2 = "What would you typically do on a Sunday morning?";
+		//DELETE String question3 = "If you could live anywhere, where would it be? \nA On a farm \nB Within a mountain range, like the Alps \nC On a beach in California \nD In a city like New York";{
+
+
+
+
+	}
+
+}

@@ -1,0 +1,36 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/**
+ * 
+ */
+
+/**
+ * @author mallikaacharya
+ *
+ */
+public class TestCode {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub	
+		
+		ArrayList<String> q = new ArrayList<String>();
+		q.add("Which of the following do you prefer to eat for breakfast?");
+		q.add("What would you typically do on a Sunday morning?");
+		q.add("If you could live anywhere, where would it be?");
+		}
+		
+		public static void UserInput(ArrayList<String>q) {
+		Scanner theirAnswer = new Scanner(System.in);
+		for(String element: q){
+            System.out.println(element);
+		}	
+		theirAnswer.close();	
+		
+		}	
+	}
+
+
