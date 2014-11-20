@@ -27,15 +27,18 @@ public class Questions {
 		 */
 	
         String text;
-        static String chosenAnswer;
+        String chosenAnswer;
         //TreeMap: key = Letter of the answer; value = Answer that corresponds to letter
         TreeMap <String, String> answerChoices;
         static int numQuestions;
         static Questions [] myQuestionList = new Questions[0];
         
-        static TreeMap <String, Integer> answerValues;
-        private static int[] scores = {1,2,3,4};
-        
+        String ans;
+        int valPerAns;
+        //TreeMap: key = Letter of the answer; value = Answer that corresponds to letter
+        TreeMap <String, Integer> answerValues;
+        static int theValues;
+        static Values [] myAnswerValues = new Values [0];
         
         /**
 		 * This method reads the input file, creates tree map, and loops through the questions & answer choices.
@@ -43,81 +46,51 @@ public class Questions {
 		 */
 		public static void loadQuestions () throws FileNotFoundException {
 		Scanner fileReader = new Scanner(new File("src/Questions.txt"));
-        String questionText, ansLetter, ansText;
-		Integer ansValue;
-		int i = 0;
-		
-		while (fileReader.hasNext()) {	
-			//qestionText = the question written out
+        String questionText, ansLetter, ansText, ansValue;
+		int i = 0, v=0;
+		while (fileReader.hasNext()) {			
 			questionText = fileReader.nextLine();
             myQuestionList[i] = new Questions();
             myQuestionList[i].text = questionText;
+            myAnswerValues[v] = new Values();
+            myAnswerValues[v].ans = ansValue;
 
-            //ansLetter = A,B,C,D
-            //ansValue = 1,2,3,4
-            //ansText = the written answer choice
             while(fileReader.hasNext() && !fileReader.hasNext("END")) {
             	ansLetter = fileReader.next("[A-Z]");
-            	ansValue = fileReader.nextInt([scores]);
+            	ansValue = fileReader.next("[1-4]");
                 ansText = fileReader.next(); 
-
+                //TreeMap: key = Letter of the answer; value = Answer that corresponds to letter
             	myQuestionList[i].answerChoices.put(ansLetter, ansText);
-            	answerValues.put(ansLetter, ansValue);
+            	//TreeMap: key = Letter of the answer; value = Value of the letter
+            	myAnswerValues[v].answerChoices.put(ansLetter, ansValue);
             }
 			i++;
+			v++;
 		}
 		numQuestions = i;
+		myAnswerValues = v;
 		}
 		
 		
 		/**
 		 * This method prompts writes out questions for the user and gets responses for each question
 		 */
-		public static void askQuestions (){	
-		Scanner input = new Scanner(System.in);	
+		public static void AskQuestions (){	
 		// For Each Question
 		for (int i=0;i <numQuestions ; i++) {
 			// print the question
 			// for each item in the TreeMap print the answerChoice			
 			for (String answerLetter:  myQuestionList[i].answerChoices.keySet()) {
 				System.out.println(answerLetter + ": " + myQuestionList[i].answerChoices.get(answerLetter));
-				chosenAnswer = input.next();
 			}
 			myQuestionList[i].chosenAnswer = ""; // Reset the answer for this question
 			// Validates answer
 			while (! myQuestionList[i].answerChoices.containsKey(myQuestionList[i].chosenAnswer)) {
 				System.out.println("Please enter a valid response.");
+
 			// store the answer in myQuestions[i].chosenAnswer = console.nextline
-			  input.close();
+			  
 			}
 		}
 		}	
-
-
-		public static void scoring(String ansLetter, int ansValue) {
-		//The letter answer choice from the tree map (key) matches up with answer choice from user
-		//The value of that letter choice is gotten
-		//Return it??
-		for(chosenAnswer.equalsIgnoreCase(ansLetter);;)  {
-			answerValues.get(ansValue);
-		
-			
-		// Problems in lines: 61, 86, 88	
-				
-		}
-		}
-		//This will probably be a different method
-		public static void readFile() throws FileNotFoundException{
-		Scanner fileReader = new Scanner(new File(FeatureImages.txt));
-		while(fileReader.hasNext()) {
-		String FileName = fileReader.next();
-		String FeatureType = fileReader.next();
-		String ImageType = fileReader.next(".jpg");
-		String FileLocation = fileReader.next("Documents/FinalJPG/"+FileName+ImageType);
-
-		fi[i] = new FeatImg(FileName, FeatureType, ImageType, FileLocation);
-		
-		
-		}
-
-}
+}	
