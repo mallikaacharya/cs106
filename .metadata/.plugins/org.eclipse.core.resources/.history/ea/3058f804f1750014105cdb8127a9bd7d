@@ -1,0 +1,13 @@
+/**
+ * 
+ */
+
+/**
+ * @author mallikaacharya
+ *This class just defines objects for making a TreeMap that will hold the answer values for the answers. 
+ */
+public class AnswerValues {
+		String ansText;
+		int ansValue; 
+
+}

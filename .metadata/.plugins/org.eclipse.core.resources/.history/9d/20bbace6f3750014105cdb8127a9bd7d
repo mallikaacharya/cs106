@@ -1,0 +1,14 @@
+/**
+ * 
+ */
+
+/**
+ * @author mallikaacharya
+ *This defines the objects for the treemap. 
+ */
+public class AnswerRow {
+	String ansText;
+	int ansValue; 
+}
+
+
