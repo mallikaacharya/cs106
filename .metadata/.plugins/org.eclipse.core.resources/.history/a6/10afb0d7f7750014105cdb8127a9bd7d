@@ -30,17 +30,19 @@ public class Questions {
         String chosenAnswer;
         
         //TreeMap: key = Letter of the answer; value = Answer that corresponds to letter
-        TreeMap <String, AnswerRow> answerChoices;
+        TreeMap <String, String> answerChoices;
         
         static int numQuestions;
         static Questions [] myQuestionList = new Questions[0];
-                
+        
+        //TreeMap: key = Letter of the answer; value = Value of the answer
+        TreeMap <String, Integer> answerValues;        
+        
         /**
 		 * This method reads the input file, creates tree map, and loops through the questions & answer choices.
-         * @param ansRow 
 		 * @param console
 		 */
-		public static void loadQuestions (AnswerRow ansRow) throws FileNotFoundException {
+		public static void loadQuestions () throws FileNotFoundException {
 		Scanner fileReader = new Scanner(new File("src/Questions.txt"));
         String questionText, ansLetter, ansText;
 		Integer ansValue;
@@ -59,8 +61,9 @@ public class Questions {
             	ansLetter = fileReader.next("[A-Z]");
             	ansValue = fileReader.nextInt();
                 ansText = fileReader.next();
-                ansRow = new AnswerRow(ansText, ansValue);
-            	myQuestionList[i].answerChoices.put(ansLetter, ansRow);  	
+
+            	myQuestionList[i].answerChoices.put(ansLetter, ansText);
+            	myQuestionList[i].answerValues.put(ansLetter, ansValue);
             }
 			i++;
 			fileReader.close();
@@ -69,20 +72,18 @@ public class Questions {
 		}
 		
 		
-
-
+		
 		/**
 		 * This method prompts writes out questions for the user and gets responses for each question
 		 */
-		public static void askQuestions () {	
+		public static void askQuestions (){	
 		Scanner input = new Scanner(System.in);	
 		// For Each Question
 		for (int i=0;i <numQuestions ; i++) {
 			// print the question
 			// for each item in the TreeMap print the answerChoice			
 			for (String answerLetter:  myQuestionList[i].answerChoices.keySet()) {
-				String s = myQuestionList[i].answerChoices.get(answerLetter).ansText;
-				System.out.println(answerLetter + ": " + s);
+				System.out.println(answerLetter + ": " + myQuestionList[i].answerChoices.get(answerLetter));
 				//chosenAnswer = input.next();
 			}
 			myQuestionList[i].chosenAnswer = ""; // Reset the answer for this question
@@ -94,7 +95,7 @@ public class Questions {
 			// store the answer in myQuestions[i].chosenAnswer = console.nextline
 			  input.close();
 			}
-		} 
+		}
 		}	
 
 
@@ -105,7 +106,9 @@ public class Questions {
 		//for(chosenAnswer.equalsIgnoreCase(ansLetter);;)  {
 			//answerValues.get(ansValue);
 		
-							
+			
+		// Problems in lines: 61, 86, 88	
+				
 		//}
 		//}
 		//This will probably be a different method
