@@ -1,10 +1,11 @@
 /** 
  * Final Project > Questions Class
  * Essentially does the following:
- * Loads/prints questions and answer choices from an input file (Questions.txt)
+ * Loads questions and answer choices from an input file (Questions.txt)
  * Prompts user for a response
- * Creates a score of responses that will be used in the Images class
- * The Images class will use the score and produce an image
+ * Returns a value for each response
+ * Sources used:
+ * http://stackoverflow.com/questions/19141661/regular-expression0-9-issue-in-java
  */
 
 //console
@@ -28,16 +29,6 @@ public class Questions {
         String text;
         String chosenAnswer;
         
-     // Added this class, to structure the answer row
-        public class AnswerRow {
-            String ansText;
-            Integer ansValue;
-            public  AnswerRow(String t, Integer p) {
-            this.ansText = t;
-            this.ansValue = p;
-            }
-        }  
-        
         //TreeMap: key = Letter of the answer; value = Answer that corresponds to letter
         TreeMap <String, AnswerRow> answerChoices;
         
@@ -49,20 +40,18 @@ public class Questions {
          * @param ansRow 
 		 * @param console
 		 */
-		public static void loadQuestions () throws FileNotFoundException {
+		public static void loadQuestions (AnswerRow ansRow) throws FileNotFoundException {
 		Scanner fileReader = new Scanner(new File("src/Questions.txt"));
         String questionText, ansLetter, ansText;
-        AnswerRow ansRow;
-        Integer ansValue;
+		Integer ansValue;
 		int i = 0;
 		
-        //Loop, go through the Questions.txt file
 		while (fileReader.hasNext()) {	
 			//qestionText = the question written out
 			questionText = fileReader.nextLine();
             myQuestionList[i] = new Questions();
             myQuestionList[i].text = questionText;
-            
+
             //ansLetter = e.g. A,B,C,D
             //ansValue = e.g. 1,2,3,4
             //ansText = the written answer choice
@@ -70,7 +59,7 @@ public class Questions {
             	ansLetter = fileReader.next("[A-Z]");
             	ansValue = fileReader.nextInt();
                 ansText = fileReader.next();
-                ansRow = myQuestionList[i].new AnswerRow(ansText, ansValue);
+                ansRow = new AnswerRow(ansText, ansValue);
             	myQuestionList[i].answerChoices.put(ansLetter, ansRow);  	
             }
 			i++;
@@ -79,6 +68,9 @@ public class Questions {
 		numQuestions = i;
 		}
 		
+		
+
+
 		/**
 		 * This method prompts writes out questions for the user and gets responses for each question
 		 */
@@ -86,45 +78,46 @@ public class Questions {
 		Scanner input = new Scanner(System.in);	
 		// For Each Question
 		for (int i=0;i <numQuestions ; i++) {
-			// Print the question
-			// For each item in the TreeMap print the answerChoice (ansLetter and ansText)			
+			// print the question
+			// for each item in the TreeMap print the answerChoice			
 			for (String answerLetter:  myQuestionList[i].answerChoices.keySet()) {
 				String s = myQuestionList[i].answerChoices.get(answerLetter).ansText;
 				System.out.println(answerLetter + ": " + s);
+				//chosenAnswer = input.next();
 			}
-			// Reset the answer for this question
-			myQuestionList[i].chosenAnswer = ""; 
+			myQuestionList[i].chosenAnswer = ""; // Reset the answer for this question
 			// Validates answer
 			while (! myQuestionList[i].answerChoices.containsKey(myQuestionList[i].chosenAnswer)) {
 				System.out.println("Please enter a valid response.");
-
-				//Store answer
+				
 				myQuestionList[i].chosenAnswer = input.nextLine();
-			
-			  //Close input
+			// store the answer in myQuestions[i].chosenAnswer = console.nextline
 			  input.close();
 			}
 		} 
 		}	
 
-		/**
-		 * This method is in charge of the scores
-		 */
-		public static int scoring () {
-		// For Each Question
-		//integer score
-		int score = 0;	
-		for (int i=0;i <numQuestions ; i++) {
-			//Get the value for the answer choice entered (written in Questions.txt; defined as ansValue)
-			for (String chosenAnswer: myQuestionList[i].answerChoices.keySet()) {
-			score = myQuestionList[i].answerChoices.get(chosenAnswer).ansValue;				
-			}
-			}
-			//return the final score
-			return score;
-	}
-}		
 
-/**
- * 
- */
+		//public static void scoring(String ansLetter, int ansValue) {
+		//The letter answer choice from the tree map (key) matches up with answer choice from user
+		//The value of that letter choice is gotten
+		//Return it??
+		//for(chosenAnswer.equalsIgnoreCase(ansLetter);;)  {
+			//answerValues.get(ansValue);
+		
+							
+		//}
+		//}
+		//This will probably be a different method
+		//public static void readFile() throws FileNotFoundException{
+		//Scanner fileReader = new Scanner(new File(FeatureImages.txt));
+		//while(fileReader.hasNext()) {
+		//String FileName = fileReader.next();
+		//String FeatureType = fileReader.next();
+		//String ImageType = fileReader.next(".jpg");
+		//String FileLocation = fileReader.next("Documents/FinalJPG/"+FileName+ImageType);
+
+		//fi[i] = new FeatImg(FileName, FeatureType, ImageType, FileLocation);		
+		//}
+	//}
+}		
