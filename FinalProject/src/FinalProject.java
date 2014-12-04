@@ -1,16 +1,31 @@
+import java.io.FileNotFoundException;
+
+import javax.print.attribute.standard.MediaSize.Other;
+
 
 /**
  * @author mallikaacharya
  *Final Project: Face Generator: Main Method
  */
 
-public class FinalProject {
+public class FinalProject{
+
+	private static Questions otherClass;
 
 	/**
 	 * MAIN METHOD
 	 * @param args
+	 * @throws FileNotFoundException 
 	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub		
+	
+	public static void main(String[] args) throws FileNotFoundException {
+	//Get everthing from other methods. 
+	otherClass = new Questions();
+	Questions.loadQuestions();
+	Questions.scoring();
+	Questions.askQuestions();
+	
+		
+	
 	}
 }

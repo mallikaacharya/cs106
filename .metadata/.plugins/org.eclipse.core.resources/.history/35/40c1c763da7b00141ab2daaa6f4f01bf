@@ -1,0 +1,24 @@
+
+/**
+ *Sources: 
+ *https://docs.oracle.com/javase/tutorial/2d/images/loadimage.html
+ *Importing libraries for images to be displayed.  
+ */
+
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.applet.Applet;
+
+/**
+ * @author mallikaacharya
+ *This class uses the scores from the quiz to generate the face. 
+ */
+public class Images extends Questions {
+	/**
+	 * This class
+	 */
+
+
+	}
+	}
+}

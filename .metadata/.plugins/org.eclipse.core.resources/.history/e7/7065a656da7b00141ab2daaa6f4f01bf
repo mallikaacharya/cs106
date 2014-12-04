@@ -1,0 +1,30 @@
+
+/**
+ *Sources: 
+ *https://docs.oracle.com/javase/tutorial/2d/images/loadimage.html
+ *Importing libraries for images to be displayed.  
+ */
+
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.applet.Applet;
+
+/**
+ * @author mallikaacharya
+ *This class uses the scores from the quiz to generate the face. 
+ */
+public class Images extends Questions {
+	/**
+	 * This class
+	 */
+	public static void imageAndScore (int score) {
+	if (score >= 4 && score <= 6) {
+		System.out.println("Low");
+	} else if (score >= 7 && score <= 9) {
+		System.out.println("Medium");
+	} else if (score >= 10 && score <= 12) {
+		System.out.println("High");
+
+	}
+	}
+}

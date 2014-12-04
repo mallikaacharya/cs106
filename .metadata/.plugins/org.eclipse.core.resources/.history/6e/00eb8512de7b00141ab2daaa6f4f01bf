@@ -1,0 +1,27 @@
+/**
+ * 
+ */
+
+/**
+ * @author mallikaacharya
+ *
+ */
+
+import java.awt.BorderLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+public class JPG {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ImageIcon image = new ImageIcon("FinalJPG/Eye1.jpg");
+		JLabel label = new JLabel("", image, JLabel.CENTER);
+		JPanel panel = new JPanel(new BorderLayout());
+		panel.add( label, BorderLayout.CENTER );
+	}
+
+}

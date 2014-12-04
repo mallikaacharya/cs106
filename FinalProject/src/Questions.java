@@ -14,6 +14,11 @@ import java.io.*;
 //Import for scanner
 import java.util.*;
 
+//import libraries for images
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.applet.Applet;
+
 /**
  * @author Mallika Acharya
  *This class contains the questions for the user
@@ -119,12 +124,19 @@ public class Questions {
 			for (String chosenAnswer: myQuestionList[i].answerChoices.keySet()) {
 			score = myQuestionList[i].answerChoices.get(chosenAnswer).ansValue;				
 			}
+			score ++;
 			}
 			//return the final score
 			return score;
 	}
-}		
-
-/**
- * 
- */
+	
+		public static void image (int score) {
+			if (score >= 4 && score <= 6) {
+				System.out.println("Low");
+			} else if (score >= 7 && score <= 9) {
+				System.out.println("Medium");
+			} else if (score >= 10 && score <= 12) {
+				System.out.println("High");	
+		}
+	}	
+}

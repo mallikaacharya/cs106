@@ -1,0 +1,19 @@
+
+/**
+ * @author mallikaacharya
+ *Final Project: Face Generator: Main Method
+ */
+
+public class FinalProject{
+
+	/**
+	 * MAIN METHOD
+	 * @param args
+	 */
+	
+	public static void main(String[] args) {
+			
+		
+	
+	}
+}
