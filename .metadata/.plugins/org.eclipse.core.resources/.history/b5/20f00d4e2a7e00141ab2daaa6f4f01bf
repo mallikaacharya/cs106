@@ -1,0 +1,45 @@
+import java.awt.EventQueue;
+import java.io.FileNotFoundException;
+
+/**
+ * @author mallikaacharya
+ *Final Project: Face Generator: Main Method
+ */
+
+public class FinalProject{
+
+	/**
+	 * MAIN METHOD
+	 * @param args
+	 * @throws FileNotFoundException 
+	 */
+	
+	 public static void main(String[] args) throws FileNotFoundException {
+	       EventQueue.invokeLater(new Runnable()
+	       {
+	           public void run(){
+	           
+	Integer Score;
+	           
+	try {
+	           
+	loadQuestions();
+	           
+	}
+	           
+	catch (FileNotFoundException e ) {            
+	           
+	e.printStackTrace();
+	           
+	}
+	           
+	askQuestions();
+	           
+	Score = scoring();
+	                    image(Score);
+	           }
+	       
+	       }
+	       );
+	 }
+}

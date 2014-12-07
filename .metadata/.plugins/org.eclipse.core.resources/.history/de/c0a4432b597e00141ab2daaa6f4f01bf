@@ -1,0 +1,33 @@
+import java.awt.EventQueue;
+import java.io.FileNotFoundException;
+
+public static void main(String[] args) 
+	       EventQueue.invokeLater(new Runnable()
+	       {
+	           public void run(){
+	           
+	Integer Score;
+	           
+	try {
+	           
+	loadQuestions();
+	           
+	}
+	           
+	catch (FileNotFoundException e ) {            
+	           
+	e.printStackTrace();
+	           
+	}
+	           
+	askQuestions();
+	           
+	Score = scoring();
+	                    image(Score);
+	           }
+	       
+	       
+	           {
+	  }
+}
+	       
