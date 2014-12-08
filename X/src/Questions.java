@@ -127,7 +127,7 @@
 		System.out.println("Please enter a valid response.");
 
 		//Store answer
-		readAnswer = input.next("[A-Z]");
+		readAnswer = input.next();
 		myQuestionList[i].chosenAnswer = readAnswer;
 		}
 		 
