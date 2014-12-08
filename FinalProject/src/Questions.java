@@ -56,7 +56,7 @@
 	/// Maximum 100 questions
 	//qestionText = the question written out
 	questionText = fileReader.nextLine();
-	             myQuestionList[i] = new Questions();
+	            myQuestionList[i] = new Questions();
 	            myQuestionList[i].text = questionText;
 	            myQuestionList[i].answerChoices = new TreeMap <String, AnswerRow>();
 	            
@@ -94,11 +94,13 @@
 		// Reset the answer for this question
 		myQuestionList[i].chosenAnswer = ""; 
 		// Validates answer
+		
+		
 		while (! myQuestionList[i].answerChoices.containsKey(myQuestionList[i].chosenAnswer)) {
 		System.out.println("Please enter a valid response.");
 
 		//Store answer
-		readAnswer = input.next("[A-Z]");
+		readAnswer = input.next();
 		myQuestionList[i].chosenAnswer = readAnswer;
 		}
 		 
@@ -138,6 +140,9 @@
 	System.out.println("High");
 	}
 	}
+	
+	
+	
 	
 	
 }

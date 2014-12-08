@@ -1,15 +1,9 @@
 //console
 import java.util.Scanner;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
 //Import for file operations
 import java.io.*;
 //Import for scanner
 import java.util.*;
-
-import javax.imageio.ImageIO;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 	/**
 	 * @author Mallika Acharya
@@ -27,7 +21,12 @@ import javax.swing.JLabel;
 	        String text;
 	        String chosenAnswer;
 	        
-	     // Added this class, to structure the answer row
+	     // A class to structure the answer row
+	     // Answer row is the way Questions.txt is formatted
+	     // After the question there are lines:
+	     // Each one has:
+	     //ansLetter (letter choice of answer) tab ansValue (points per that choice) ansText (text; the answer choice)
+	        
 	        public class AnswerRow {
 	            String ansText;
 	            Integer ansValue;
@@ -48,13 +47,15 @@ import javax.swing.JLabel;
 	         * @param ansRow 
 	* @param console
 	*/
-	public static void loadQuestions () throws FileNotFoundException {
+	public void loadQuestions () throws FileNotFoundException {
+	//Open Questions.txt file
 	Scanner fileReader = new Scanner(new File("src/Questions.txt"));
+			//Create the variables that are in the file
 	        String questionText, ansLetter, ansText;
 	        AnswerRow ansRow;
 	        Integer ansValue;
 	int i = 0;
-	        //Loop, go through the Questions.txt file
+	//Loop, go through the Questions.txt file
 	while (fileReader.hasNext() && i < 100) {
 	/// Maximum 100 questions
 	//qestionText = the question written out
@@ -79,10 +80,12 @@ import javax.swing.JLabel;
 	fileReader.close();
 	numQuestions = i;
 	}
+	
+	
 	/**
 	* This method prompts questions & respective answer choices for the user and gets responses for each question
 	*/
-	public static void askQuestions () {
+	public void askQuestions () {
 		Scanner input = new Scanner(System.in);
 		
 		// For Each Question...
@@ -106,40 +109,37 @@ import javax.swing.JLabel;
 				readAnswer = input.nextLine();
 				first = false;
 				}
-	
-		while (! (readAnswer.equals(myQuestionList[i].answerChoices)));
-	
 		
+		while (! myQuestionList[i].answerChoices.containsKey(myQuestionList[i].chosenAnswer));
+	
 		// Reset the answer for this question
 		myQuestionList[i].chosenAnswer="";
 		
-		//If answer is valid...
-		if ((myQuestionList[i].chosenAnswer.equals(myQuestionList[i].answerChoices))) {
-			//Store answer
-			myQuestionList[i].chosenAnswer = readAnswer;
+		//If answer is valid... (If it is one of the letter choices in the file): 
+		if (myQuestionList[i].answerChoices.containsKey(myQuestionList[i].chosenAnswer)) {
+		myQuestionList[i].chosenAnswer = readAnswer;	
 		}
 		//Close input
 		 input.close();
 		}
+	}
 		
-		}
-		
-	
 	
 		
 	/**
 	* This method is in charge of the scores
 	*/
-	public static int scoring () {
+	public int scoring () {
 	//integer score, keeps track of the score
 	int score = 0;
 	//For each question...
 	for (int i=0;i <numQuestions ; i++) {
-		//Get the value for the answer choice entered (written in Questions.txt; defined as ansValue)
+		//Get the corresponding value for the answer choice entered (written in Questions.txt; defined as ansValue)
+		//Then add that value to int score
 		for (String chosenAnswer: myQuestionList[i].answerChoices.keySet()) {
 		score += myQuestionList[i].answerChoices.get(chosenAnswer).ansValue;
+		System.out.println(score);
 		}
-		score++;
 	}
 	//return the final score
 	return score;
@@ -148,9 +148,10 @@ import javax.swing.JLabel;
 	
 	/**
 	 * This method displays an image based on score
-	 * @param score
 	 */
-	public static void showImage (int score) {
+	public void showImage () {
+		
+	int score = this.scoring();
 	
 	//If score the score is low, display Face1.jpg
 	if (score <= 6) {	
