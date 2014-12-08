@@ -55,7 +55,7 @@ import java.util.*;
 	/// Maximum 100 questions
 	//qestionText = the question written out
 	questionText = fileReader.nextLine();
-	            myQuestionList[i] = new Questions();
+	             myQuestionList[i] = new Questions();
 	            myQuestionList[i].text = questionText;
 	            myQuestionList[i].answerChoices = new TreeMap <String, AnswerRow>();
 	            
@@ -103,13 +103,13 @@ import java.util.*;
 				first = false;
 				readAnswer = input.nextLine();
 				}	
-		while (! (myQuestionList[i].answerChoices.containsKey(myQuestionList[i].chosenAnswer))); 
+		while (! readAnswer.equals(myQuestionList[i].answerChoices.containsKey(myQuestionList[i].chosenAnswer))); 
 		
-		if (myQuestionList[i].answerChoices.containsKey(myQuestionList[i].chosenAnswer)) {
-			//Store answer
-			myQuestionList[i].chosenAnswer = readAnswer;	
-		}
-	
+		
+		//Store answer
+		readAnswer = input.nextLine();
+		myQuestionList[i].chosenAnswer = readAnswer;
+		
 		} 
 		//Close input
 		 input.close();

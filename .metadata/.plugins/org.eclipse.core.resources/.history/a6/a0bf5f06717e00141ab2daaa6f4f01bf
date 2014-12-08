@@ -91,7 +91,7 @@ import java.util.*;
 		System.out.println(answerLetter + ": " + s);
 		}
 		// Reset the answer for this question
-		myQuestionList[i].chosenAnswer = ""; 
+		myQuestionList[i].chosenAnswer = " "; 
 		// Validates answer
 		
 		//Loop for invalid answer
@@ -101,13 +101,13 @@ import java.util.*;
 						System.out.println("Please enter a valid response.");
 				}
 				first = false;
-				readAnswer = input.nextLine();
+				ReadAnswer = input.nextLine();
 				}	
 		while (! (myQuestionList[i].answerChoices.containsKey(myQuestionList[i].chosenAnswer))); 
 		
 		if (myQuestionList[i].answerChoices.containsKey(myQuestionList[i].chosenAnswer)) {
 			//Store answer
-			myQuestionList[i].chosenAnswer = readAnswer;	
+			myQuestionList[i].chosenAnswer = ReadAnswer;	
 		}
 	
 		} 

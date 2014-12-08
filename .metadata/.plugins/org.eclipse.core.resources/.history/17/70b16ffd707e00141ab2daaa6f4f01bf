@@ -55,7 +55,7 @@ import java.util.*;
 	/// Maximum 100 questions
 	//qestionText = the question written out
 	questionText = fileReader.nextLine();
-	            myQuestionList[i] = new Questions();
+	             myQuestionList[i] = new Questions();
 	            myQuestionList[i].text = questionText;
 	            myQuestionList[i].answerChoices = new TreeMap <String, AnswerRow>();
 	            
