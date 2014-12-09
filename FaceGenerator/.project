@@ -16,9 +16,14 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>src/Face1.JPG</name>
+			<name>src/Face1.jpg</name>
 			<type>1</type>
-			<location>/Users/mallikaacharya/Documents/Faces/Face1.JPG</location>
+			<location>/Users/mallikaacharya/Desktop/Faces/Face1.jpg</location>
+		</link>
+		<link>
+			<name>src/Face2.jpg</name>
+			<type>1</type>
+			<location>/Users/mallikaacharya/Desktop/Faces/Face2.jpg</location>
 		</link>
 	</linkedResources>
 </projectDescription>

@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
  */
 public class FaceGenerator {
 
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) throws Exception {
 	      
 	Questions questions = new Questions();
 	questions.getClass();

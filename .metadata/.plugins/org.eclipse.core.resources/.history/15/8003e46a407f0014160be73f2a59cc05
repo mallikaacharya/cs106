@@ -1,0 +1,35 @@
+import java.awt.BorderLayout;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.WindowConstants;
+
+
+
+
+
+
+/**
+ * @author mallikaacharya
+ * This class displays an image based on score
+ */
+ 
+public class Images {
+
+
+	/**
+	 * This method displays an image based on score
+	 */
+	
+
+
+
+
+
+

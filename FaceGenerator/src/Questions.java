@@ -1,9 +1,22 @@
-//console
+//Import for console
 import java.util.Scanner;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
 //Import for file operations
 import java.io.*;
 //Import for scanner
 import java.util.*;
+
+//Import for pictures
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 
 	/**
 	 * @author Mallika Acharya
@@ -11,6 +24,9 @@ import java.util.*;
 	 *This loads and asks questions
 	 *Calculates a score based on the user's answers
 	 *Then it prints a picture based on the score
+	 *Sources:
+	 *http://alvinalexander.com/blog/post/jfc-swing/complete-java-program-code-open-read-display-image-file
+	 *
 	 */
 
 	public class Questions {
@@ -87,11 +103,12 @@ import java.util.*;
 	*/
 	public void askQuestions () {
 		Scanner input = new Scanner(System.in);
+		String readAnswer;
 		
-		// For Each Question...
+		// For Each Question
 		for (int i=0;i <numQuestions ; i++) {
-		// Print the question
-		System.out.println(i+1 + " " + myQuestionList[i].text);
+			// Print the question
+			System.out.println(i+1 + " " + myQuestionList[i].text);
 		
 		// For each item in the TreeMap print the answerChoice (ansLetter and ansText)
 		for (String answerLetter:  myQuestionList[i].answerChoices.keySet()) {
@@ -99,76 +116,182 @@ import java.util.*;
 		System.out.println(answerLetter + ": " + s);
 		}
 		
-		//Loop for invalid answer
-		String readAnswer;
-		boolean first = true;		
-		do {
-				if (!first)	{
-						System.out.println("Please enter a valid response.");
-				}
-				readAnswer = input.nextLine();
-				first = false;
-				}
-		
-		while (! myQuestionList[i].answerChoices.containsKey(myQuestionList[i].chosenAnswer));
-	
 		// Reset the answer for this question
-		myQuestionList[i].chosenAnswer="";
+		myQuestionList[i].chosenAnswer = ""; 
 		
-		//If answer is valid... (If it is one of the letter choices in the file): 
-		if (myQuestionList[i].answerChoices.containsKey(myQuestionList[i].chosenAnswer)) {
-		myQuestionList[i].chosenAnswer = readAnswer;	
+		// Validates answer
+		while (! myQuestionList[i].answerChoices.containsKey(myQuestionList[i].chosenAnswer)) {
+		System.out.println("Please enter a valid response.");
+
+		//Store answer
+		readAnswer = input.next();
+		myQuestionList[i].chosenAnswer = readAnswer;
 		}
+		 
+		} 
 		//Close input
 		 input.close();
 		}
-	}
 		
-	
 		
 	/**
 	* This method is in charge of the scores
 	*/
 	public int scoring () {
-	//integer score, keeps track of the score
-	int score = 0;
-	//For each question...
-	for (int i=0;i <numQuestions ; i++) {
-		//Get the corresponding value for the answer choice entered (written in Questions.txt; defined as ansValue)
-		//Then add that value to int score
-		for (String chosenAnswer: myQuestionList[i].answerChoices.keySet()) {
-		score += myQuestionList[i].answerChoices.get(chosenAnswer).ansValue;
-		System.out.println(score);
-		}
-	}
-	//return the final score
-	return score;
-	}
-	
-	
-	/**
-	 * This method displays an image based on score
-	 */
-	public void showImage () {
 		
-	int score = this.scoring();
-	
-	//If score the score is low, display Face1.jpg
-	if (score <= 6) {	
-	System.out.println("Low");
-	
-	//If score the score is medium, display Face2.jpg
-	} else if (score >= 7 && score <= 9) {
-	System.out.println("Medium");
-	
-	//If score the score is high, display Face3.jpg
-	} else if (score >= 10 ) {
-	System.out.println("High");
-	}
-	}
-	}
-	
-	
-	
-	
+		//int that keeps score of answers to questions
+		int score = 0;
 
+		//For each question...
+		for(int i=0;i<numQuestions;i++) {
+		    String ansLetter = myQuestionList[i].chosenAnswer;
+		    score += myQuestionList[i].answerChoices.get(ansLetter).ansValue;
+		}
+		//Return final score
+		return score;
+	}
+	
+	
+	
+	public void showImage () throws Exception {
+		//Get the score from scoring method
+		int score = this.scoring();
+		
+		//Sets up to display imageName
+		String Face1 = "/Users/mallikaacharya/Desktop/Faces/Face1.JPG";
+		String Face2 = "/Users/mallikaacharya/Desktop/Faces/Face2.jpg";
+		String Face3 = "/Users/mallikaacharya/Desktop/Faces/Face3.jpg";
+
+
+		//If score the score is low, display Face1.jpg
+		//Uses Face1
+		if (score <= 6) {	
+		//Loads and displays image
+			
+			//Create the window or "frame" that will display image
+			JFrame editorFrame = new JFrame("Your Face");
+			editorFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+			
+			//Load image
+			BufferedImage image = null;
+		
+			try {
+			image = ImageIO.read(new File(Face1));
+		  
+			} catch (Exception e) {
+		  
+		    e.printStackTrace();
+		    System.exit(1);
+			}
+		  
+			ImageIcon icon = new ImageIcon(image);
+			JLabel label = new JLabel();
+			label.setIcon(icon);
+			
+			editorFrame.getContentPane().add(label, BorderLayout.CENTER);
+		
+			editorFrame.pack();
+			
+			//Make picture centered
+			Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+			int height = screenSize.height;
+			int width = screenSize.width;
+			editorFrame.setSize(width/2, height/2);
+			editorFrame.setLocationRelativeTo(null);
+
+			editorFrame.setVisible(true);
+			
+	    
+  
+		//If score the score is medium, display Face2.jpg
+		//Uses Face2		
+		} else if (score >= 7 && score <= 9) {
+			//Loads and displays image
+			
+			//Create the window or "frame" that will display image
+			JFrame editorFrame = new JFrame("Your Face");
+			editorFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+			
+			//Load image
+			BufferedImage image = null;
+		
+			try {
+			image = ImageIO.read(new File(Face2));
+		  
+			} catch (Exception e) {
+		  
+		    e.printStackTrace();
+		    System.exit(1);
+			}
+		  
+			ImageIcon icon = new ImageIcon(image);
+			JLabel label = new JLabel();
+			label.setIcon(icon);
+			
+			editorFrame.getContentPane().add(label, BorderLayout.CENTER);
+		
+			editorFrame.pack();
+			
+			//Make picture centered
+			Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+			int height = screenSize.height;
+			int width = screenSize.width;
+			editorFrame.setSize(width/2, height/2);
+			editorFrame.setLocationRelativeTo(null);
+
+			editorFrame.setVisible(true);
+			
+	
+			
+			
+		//If score the score is medium, display Face2.jpg
+		//Uses Face3
+		} else if (score >= 10) {
+			//Loads and displays image
+		//Loads and displays image
+			
+			//Create the window or "frame" that will display image
+			JFrame editorFrame = new JFrame("Your Face");
+			editorFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+			
+			//Load image
+			BufferedImage image = null;
+		
+			try {
+			image = ImageIO.read(new File(Face3));
+		  
+			} catch (Exception e) {
+		  
+		    e.printStackTrace();
+		    System.exit(1);
+			}
+		  
+			ImageIcon icon = new ImageIcon(image);
+			JLabel label = new JLabel();
+			label.setIcon(icon);
+			
+			editorFrame.getContentPane().add(label, BorderLayout.CENTER);
+		
+			editorFrame.pack();
+			
+			//Make picture centered
+			Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+			int height = screenSize.height;
+			int width = screenSize.width;
+			editorFrame.setSize(width/2, height/2);
+			editorFrame.setLocationRelativeTo(null);
+
+			editorFrame.setVisible(true);
+			
+
+}
+
+
+}
+}
+	
+	
+	
+	
+	
+	
