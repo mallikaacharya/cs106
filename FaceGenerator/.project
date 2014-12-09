@@ -25,5 +25,10 @@
 			<type>1</type>
 			<location>/Users/mallikaacharya/Desktop/Faces/Face2.jpg</location>
 		</link>
+		<link>
+			<name>src/Face3.jpg</name>
+			<type>1</type>
+			<location>/Users/mallikaacharya/Desktop/Faces/Face3.jpg</location>
+		</link>
 	</linkedResources>
 </projectDescription>
